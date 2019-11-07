@@ -1,53 +1,42 @@
 package com.tactfactory.ovg.repositories;
 
-import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tactfactory.ovg.entities.User;
 
 @Repository
-public class UserRepository {
+public class UserRepository extends OvgRepository<User> {
 
-    @Autowired
-    private EntityManager manager;
-
-    private Connection connection() {
-        return this.manager.getConnection();
+    @Override
+    protected String getTableName() {
+        return "sys_user";
     }
 
-    public void insertOne(String username, String password) throws SQLException {
-        final Statement stm = this.connection().createStatement();
-
-        final String query = String.format("INSERT INTO sys_user (username, password) VALUES (\"%s\", \"%s\")",
-                username, password);
-
-        System.out.println("Query: " + query);
-        stm.executeUpdate(query);
+    @Override
+    protected List<String> getColumnNames() {
+        return Arrays.asList("username", "password");
     }
 
-    public List<User> findAll() throws SQLException {
-        final List<User> result = new ArrayList<User>();
-        final Statement stm = connection().createStatement();
-        final String query = "SELECT * FROM sys_user";
+    @Override
+    protected PreparedStatement fill(PreparedStatement stmt, User u) throws SQLException {
+        stmt.setString(1, u.getUsername());
+        stmt.setString(2, u.getPassword());
 
-        System.out.println("Query: " + query);
-        final ResultSet usersRS = stm.executeQuery(query);
-
-        while (usersRS.next()) {
-            final int id = usersRS.getInt("id");
-            final String username = usersRS.getString("username");
-            final String password = usersRS.getString("password");
-
-            result.add(new User(id, username, password));
-        }
-
-        return result;
+        return stmt;
     }
+
+    @Override
+    protected User fill(final ResultSet rs) throws SQLException {
+        return new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"));
+    }
+
+//    public static <T extends Number> T max(T a, T b) {
+//        return a.doubleValue() > b.doubleValue() ? a : b;
+//    }
 }

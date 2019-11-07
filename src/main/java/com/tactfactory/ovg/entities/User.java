@@ -2,7 +2,7 @@ package com.tactfactory.ovg.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class User {
+public class User implements Entity {
     private Integer id;
 
     private String username;
@@ -29,8 +29,12 @@ public class User {
     /**
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**

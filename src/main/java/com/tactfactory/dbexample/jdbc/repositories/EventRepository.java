@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.repositories;
+package com.tactfactory.dbexample.jdbc.repositories;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.tactfactory.ovg.entities.Event;
+import com.tactfactory.dbexample.jdbc.entities.Event;
 
 @Repository
 public class EventRepository extends OvgRepository<Event> {

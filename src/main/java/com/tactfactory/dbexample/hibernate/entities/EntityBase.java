@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.entities;
+package com.tactfactory.dbexample.hibernate.entities;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

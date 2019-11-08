@@ -1,10 +1,10 @@
-package com.tactfactory.ovg.repositories;
+package com.tactfactory.dbexample.hibernate.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.tactfactory.ovg.entities.PokemonSpecies;
+import com.tactfactory.dbexample.hibernate.entities.PokemonSpecies;
 
 public interface PokemonSpeciesRepository extends JpaRepository<PokemonSpecies, Long> {
 

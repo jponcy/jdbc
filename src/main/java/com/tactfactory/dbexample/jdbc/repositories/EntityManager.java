@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.repositories;
+package com.tactfactory.dbexample.jdbc.repositories;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ public class EntityManager {
 
     public EntityManager() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

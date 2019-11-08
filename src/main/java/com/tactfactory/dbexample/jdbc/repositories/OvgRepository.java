@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.repositories;
+package com.tactfactory.dbexample.jdbc.repositories;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,8 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.tactfactory.ovg.entities.Entity;
-import com.tactfactory.ovg.entities.User;
+import com.tactfactory.dbexample.jdbc.entities.Entity;
 import com.tactfactory.ovg.exceptions.HttpException;
 import com.tactfactory.ovg.exceptions.NotFoundException;
 

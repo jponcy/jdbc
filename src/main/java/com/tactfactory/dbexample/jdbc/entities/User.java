@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.entities;
+package com.tactfactory.dbexample.jdbc.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

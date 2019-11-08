@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.controllers;
+package com.tactfactory.dbexample.jdbc.controllers;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.tactfactory.ovg.entities.Entity;
+import com.tactfactory.dbexample.jdbc.entities.Entity;
+import com.tactfactory.dbexample.jdbc.repositories.OvgRepository;
 import com.tactfactory.ovg.exceptions.HttpException;
 import com.tactfactory.ovg.exceptions.NotFoundException;
-import com.tactfactory.ovg.repositories.OvgRepository;
 
 public class CrudController<T extends Entity, R extends OvgRepository<T>> {
 

@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.controllers;
+package com.tactfactory.dbexample.hibernate.controllers;
 
 import java.util.List;
 
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tactfactory.ovg.entities.PokemonSpecies;
+import com.tactfactory.dbexample.hibernate.entities.PokemonSpecies;
+import com.tactfactory.dbexample.hibernate.repositories.PokemonSpeciesRepository;
 import com.tactfactory.ovg.exceptions.BadRequestException;
 import com.tactfactory.ovg.exceptions.NotFoundException;
-import com.tactfactory.ovg.repositories.PokemonSpeciesRepository;
 
 @RestController
 @RequestMapping("species")

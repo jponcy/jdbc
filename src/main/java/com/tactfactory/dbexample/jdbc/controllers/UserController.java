@@ -1,13 +1,12 @@
-package com.tactfactory.ovg.controllers;
+package com.tactfactory.dbexample.jdbc.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tactfactory.ovg.entities.User;
-import com.tactfactory.ovg.repositories.UserRepository;
+import com.tactfactory.dbexample.jdbc.entities.User;
+import com.tactfactory.dbexample.jdbc.repositories.UserRepository;
 
 @RestController
 @RequestMapping("user")
 public class UserController extends CrudController<User, UserRepository> {
-
 }

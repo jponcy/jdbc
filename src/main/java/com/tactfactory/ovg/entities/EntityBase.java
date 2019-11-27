@@ -15,24 +15,38 @@ import org.springframework.data.annotation.CreatedDate;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+ * Describes skeleton of each entities of our system.
+ */
 @MappedSuperclass
 public class EntityBase {
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = Access.READ_ONLY)
+    @ApiModelProperty(value = "The ganarated database ID", readOnly = true)
     private Long id;
 
     @Column(nullable = false)
     @JsonProperty(access = Access.READ_ONLY)
     @CreatedDate
+    @ApiModelProperty(value = "The generated date of creation", readOnly = true)
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
     @JsonProperty(access = Access.READ_ONLY)
+    @ApiModelProperty(value = "The generated date of last update", readOnly = true)
     private LocalDateTime updatedAt;
 
-    protected EntityBase() {}
+    /**
+     * Default constructor.
+     */
+    protected EntityBase() {
+        // Protected to prevent useless instance.
+        super();
+    }
 
 //    @PrePersist
 //    public void updateCreatedAt() {

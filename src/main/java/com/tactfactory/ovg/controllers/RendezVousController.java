@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +16,13 @@ import com.tactfactory.ovg.entities.RendezVous;
 import com.tactfactory.ovg.mappers.RendezVousMapper;
 import com.tactfactory.ovg.services.RendezVousService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+// TODO: Complete this one (example just started).
 @RestController
 @RequestMapping("rdv")
+@Api(value = "Manage the Rendez-Vous", tags = "Rendez-Vous")
 public class RendezVousController {
 
     @Autowired
@@ -28,11 +32,13 @@ public class RendezVousController {
     private RendezVousService service;
 
     @GetMapping
+    @ApiOperation(value = "Retrieves all rendez-vous")
     public List<RendezVous> getAll() {
         return this.service.getAll();
     }
 
     @PostMapping
+    @ApiOperation(value = "Creates a new rendez-vous")
     public RendezVous create(@Valid @RequestBody final RendezVousFormDto dto) {
         final RendezVous entity = this.mapper.createFrom(dto);
 

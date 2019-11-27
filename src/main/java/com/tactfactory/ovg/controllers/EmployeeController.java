@@ -21,23 +21,31 @@ import com.tactfactory.ovg.entities.Employee;
 import com.tactfactory.ovg.exceptions.NotFoundException;
 import com.tactfactory.ovg.services.EmployeeService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
-@RequestMapping("employee")
+@RequestMapping("api/v1/employee")
+@Api(value="Employee Management System", tags = "Employee")
 public class EmployeeController {
 
     /** Inject the business service about employees. */
     @Autowired
     private EmployeeService service;
 
+    // TODO: Use a custom mapper service.
     @Autowired
     private ModelMapper mapper;
 
     @GetMapping
+    @ApiOperation(value = "Retrieves all employees")
     private List<Employee> getAll() {
         return this.service.getAll();
     }
 
     @PostMapping
+    @ApiOperation(value = "Creates a new employee")
+    @ResponseStatus(value = HttpStatus.CREATED)
     private Employee create(@Valid @RequestBody final Employee entity) {
         this.service.create(entity);
 
@@ -85,11 +93,13 @@ public class EmployeeController {
 //    }
 
     @GetMapping("{id}")
+    @ApiOperation(value = "Retrieves an employee with detailed informations")
     public Employee getOne(@PathVariable final long id) throws NotFoundException {
         return this.service.getOne(id);
     }
 
     @PutMapping("{id}")
+    @ApiOperation(value = "Updates an employee")
     public Employee update(@PathVariable final long id, @RequestBody final Employee dto) throws NotFoundException {
         final Employee entity = this.service.getOne(id);
 
@@ -117,6 +127,7 @@ public class EmployeeController {
      */
     @DeleteMapping("{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @ApiOperation(value = "Deletes an employee")
     public void delete(@PathVariable final long id) throws NotFoundException {
         this.service.delete(id);
     }

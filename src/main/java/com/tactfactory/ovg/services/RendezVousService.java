@@ -2,34 +2,33 @@ package com.tactfactory.ovg.services;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.tactfactory.ovg.entities.RendezVous;
 import com.tactfactory.ovg.exceptions.NotFoundException;
-import com.tactfactory.ovg.repositories.RendezVousRepository;
 
-@Transactional
-@Service
-public class RendezVousService {
+public interface RendezVousService {
 
-    @Autowired
-    private RendezVousRepository repository;
+    /**
+     * Returns all {@link RendezVous rendez-vous}.
+     *
+     * @return
+     */
+    List<RendezVous> getAll();
 
-    @Autowired
-    private RendezVousDeleteService delete;
+    /**
+     * Deletes the {@link RendezVous rendez-vous} for given {@link RendezVous#id
+     * id}.
+     *
+     * @param id The id of the {@link RendezVous rendez-vous} to delete.
+     * @throws NotFoundException Throws if no {@link RendezVous rendez-vous} entity
+     *                           exists for given {@code id}.
+     */
+    void delete(final long id) throws NotFoundException;
 
-    public List<RendezVous> getAll() {
-        return this.repository.findAll();
-    }
-
-    void delete(final long id) throws NotFoundException {
-        this.delete.delete(id);
-    }
-
-    public RendezVous create(final RendezVous entity) {
-        return this.repository.save(entity);
-    }
+    /**
+     * Saves in database the given {@link RendezVous rendez-vous}.
+     *
+     * @param entity The built entity.
+     * @return The entity after hydratation.
+     */
+    RendezVous create(final RendezVous entity);
 }

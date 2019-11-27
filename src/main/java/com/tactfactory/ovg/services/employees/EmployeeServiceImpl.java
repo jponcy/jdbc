@@ -12,7 +12,7 @@ import com.tactfactory.ovg.entities.RendezVous;
 import com.tactfactory.ovg.exceptions.NotFoundException;
 import com.tactfactory.ovg.repositories.EmployeeRepository;
 import com.tactfactory.ovg.services.EmployeeService;
-import com.tactfactory.ovg.services.RendezVousDeleteService;
+import com.tactfactory.ovg.services.rendezvous.RendezVousDeleteService;
 
 @Transactional
 @Service

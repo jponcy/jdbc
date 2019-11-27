@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.services;
+package com.tactfactory.ovg.services.rendezvous;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.services.fixtures;
+package com.tactfactory.ovg.fixtures;
 
 import javax.transaction.Transactional;
 

@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class EntityBase {
     @Id
     @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = Access.READ_ONLY)
     private Long id;
 

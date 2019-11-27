@@ -25,6 +25,7 @@ import com.tactfactory.ovg.services.EmployeeService;
 @RequestMapping("employee")
 public class EmployeeController {
 
+    /** Inject the business service about employees. */
     @Autowired
     private EmployeeService service;
 
@@ -110,6 +111,10 @@ public class EmployeeController {
         return entity;
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     @DeleteMapping("{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable final long id) throws NotFoundException {

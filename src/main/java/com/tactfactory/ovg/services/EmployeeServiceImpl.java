@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tactfactory.ovg.entities.Employee;
+import com.tactfactory.ovg.entities.RendezVous;
 import com.tactfactory.ovg.exceptions.NotFoundException;
 import com.tactfactory.ovg.repositories.EmployeeRepository;
 
@@ -20,6 +21,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeCreateService createService;
+
+    @Autowired
+    private RendezVousDeleteService rdvDeleteService;
 
     @Override
     public List<Employee> getAll() {
@@ -48,6 +52,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        final Employee entity = this.getOne(id);
 //        this.repository.delete(entity);
 
-        this.repository.delete(this.getOne(id));
+        final Employee employee = this.getOne(id);
+
+        for (RendezVous rdv : employee.getRendezVous()) {
+            this.rdvDeleteService.delete(rdv.getId());
+        }
+
+        this.repository.delete(employee);
     }
 }

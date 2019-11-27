@@ -1,0 +1,15 @@
+@startuml Delivery Manager
+skinparam RoundCorner 25
+
+class Employee
+class Customer
+class Product
+class RendezVous {
+    - startedAt: DateTime
+    - toInstall: boolean
+}
+
+RendezVous "*" - "1" Customer
+Employee "1" - "*" RendezVous
+RendezVous "*" -- "1" Product
+@enduml

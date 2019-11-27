@@ -10,8 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "app_employees")
-public class Employee extends EntityBase {
+@Table(name = "app_customers")
+public class Customer extends EntityBase {
 
     @NotBlank
     @Column(nullable = false)
@@ -21,7 +21,11 @@ public class Employee extends EntityBase {
     @Column(nullable = false)
     private String firstname;
 
-    @OneToMany(mappedBy = "deliveryMan")
+    @NotBlank
+    @Column(nullable = false)
+    private String address;
+
+    @OneToMany(mappedBy = "customer")
     private final List<RendezVous> rendezVous = new ArrayList<>();
 
     /**
@@ -50,6 +54,20 @@ public class Employee extends EntityBase {
      */
     public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     /**

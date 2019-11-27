@@ -1,14 +1,11 @@
 package com.tactfactory.ovg.exceptions;
 
-//@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 public class HttpException extends Exception {
 
     /** The serial number. */
     private static final long serialVersionUID = 1L;
 
-    /**
-     *
-     */
+    /** The default constructor. */
     public HttpException() {
         super();
     }

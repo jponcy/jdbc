@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.services;
+package com.tactfactory.ovg.services.employees;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import com.tactfactory.ovg.entities.Employee;
 import com.tactfactory.ovg.entities.RendezVous;
 import com.tactfactory.ovg.exceptions.NotFoundException;
 import com.tactfactory.ovg.repositories.EmployeeRepository;
+import com.tactfactory.ovg.services.EmployeeService;
+import com.tactfactory.ovg.services.RendezVousDeleteService;
 
 @Transactional
 @Service

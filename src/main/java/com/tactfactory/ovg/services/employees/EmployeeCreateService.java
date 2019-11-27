@@ -1,4 +1,4 @@
-package com.tactfactory.ovg.services;
+package com.tactfactory.ovg.services.employees;
 
 import javax.transaction.Transactional;
 
@@ -19,7 +19,7 @@ public class EmployeeCreateService {
     @Autowired
     private EmployeeRepository repository;
 
-    Employee create(final Employee employee) {
+    public Employee create(final Employee employee) {
         log.debug("Create employee");
         // Upload avatar.
         // Create avatar entry.

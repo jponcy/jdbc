@@ -12,7 +12,7 @@ public class RendezVousDeleteService {
     @Autowired
     private RendezVousRepository repository;
 
-    void delete(final long id) throws NotFoundException {
+    public void delete(final long id) throws NotFoundException {
         this.repository.delete(
                 this.repository
                     .findById(id)

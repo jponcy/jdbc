@@ -12,7 +12,7 @@ import com.tactfactory.dbexample.fixtures.services.fixtures.FixtureService;
 @SpringBootApplication
 public class FixtureExampleApplication implements CommandLineRunner {
 
-private static final Logger log = LoggerFactory.getLogger(FixtureExampleApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(FixtureExampleApplication.class);
 
     @Autowired(required = false)
     private FixtureService fixtures;

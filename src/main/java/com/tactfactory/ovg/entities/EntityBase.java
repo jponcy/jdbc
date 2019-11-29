@@ -26,7 +26,7 @@ public class EntityBase {
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = Access.READ_ONLY)
-    @ApiModelProperty(value = "The ganarated database ID", readOnly = true)
+    @ApiModelProperty(value = "The generated database ID", readOnly = true)
     private Long id;
 
     @Column(nullable = false)

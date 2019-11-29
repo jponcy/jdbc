@@ -23,7 +23,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class OpenApiConfiguration {
 
-    private static final String BASE_PACKAGE = "com.tactfactory";
+    private static final String BASE_PACKAGE = "com.tactfactory.ovg";
 
     @Bean
     public Docket api() {

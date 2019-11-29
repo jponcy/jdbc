@@ -39,6 +39,7 @@ public class EmployeeController {
 
     @GetMapping
     @ApiOperation(value = "Retrieves all employees")
+    // @ApiResponses(@ApiResponse(code = 200, message = "coucou"))
     private List<Employee> getAll() {
         return this.service.getAll();
     }
